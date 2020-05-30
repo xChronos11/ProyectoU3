@@ -1,3 +1,6 @@
+using ExerciseAssiatant.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +19,17 @@ namespace ExerciseAssiatant
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            CheckRoles();
+            Utilities.Utilities.checkSuperUser();
         }
+
+        private void CheckRoles()
+        {
+            Utilities.Utilities.CheckRoles("Admin");
+            Utilities.Utilities.CheckRoles("User");
+        }
+
+
     }
 }
