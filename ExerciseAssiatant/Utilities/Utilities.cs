@@ -36,7 +36,8 @@ namespace ExerciseAssiatant.Utilities
                 {
                     UserId= userAsp.Id
                 };
-               
+                db.Admins.Add(adm);
+                db.SaveChanges();
             }
         
         }
