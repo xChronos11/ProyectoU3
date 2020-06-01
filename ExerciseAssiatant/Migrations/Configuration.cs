@@ -10,7 +10,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-        }
+        }   
 
         protected override void Seed(ExerciseAssiatant.Models.ApplicationDbContext context)
         {
