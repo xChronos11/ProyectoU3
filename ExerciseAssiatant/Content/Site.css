@@ -1,24 +1,37 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿div.main-title {
+    /*font-family: 'Microsoft Himalaya';*/
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
+    /*min-height: 100%;*/
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+/*#container {
+    height: 100vh;
+}*/
+
+#aside {
+    /*background-image: url("img/junction-984045_1280.jpg");*/
+    /*margin-left: 8px;*/
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("img/junction-984045_1280.jpg");
+    background-position: center;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#principal {
+    margin: 0;
+    padding: 0;
+}
+
+.circle-img {
+    height: 200px;
+    width: 200px;
+    background-image: url("img/sports-731506_1280.jpg");
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+}
+
+.list-group-item {
+    background: inherit;    
+    border-color: rgba(255, 255, 255, 0.4)
 }
