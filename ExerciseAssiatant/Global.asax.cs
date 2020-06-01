@@ -21,7 +21,7 @@ namespace ExerciseAssiatant
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             CheckRoles();
-            Utilities.Utilities.checkSuperUser();
+            Utilities.Utilities.CheckSuperUser();
         }
 
         private void CheckRoles()
