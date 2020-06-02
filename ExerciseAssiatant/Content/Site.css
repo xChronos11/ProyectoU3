@@ -17,10 +17,10 @@ body {
     background-position: center;
 }
 
-#principal {
-    margin: 0;
-    padding: 0;
-}
+    #principal {
+        margin: 0;
+        padding: 0;
+    }
 
 .circle-img {
     height: 200px;

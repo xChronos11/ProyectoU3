@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ExerciseAssiatant.Models
 {
-    public class Admin
+    public class Cliente
     {
         public int Id { get; set; }
         public string UserId { get; set; }

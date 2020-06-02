@@ -30,9 +30,9 @@ namespace ExerciseAssiatant.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> Userss { get; set; }
         public DbSet<UserExercise> UserExercises { get; set; }
     }
 }

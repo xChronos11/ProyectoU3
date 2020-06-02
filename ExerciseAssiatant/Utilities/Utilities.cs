@@ -30,19 +30,19 @@ namespace ExerciseAssiatant.Utilities
 
             if (userAsp == null)
             {
-                createUserASP("admin@mail.com", "admin123", "Admin");
+                CreateUserASP("admin@mail.com", "admin123", "Admin");
                 userAsp = userManager.FindByName("admin@mail.com");
-                var adm = new Admin
+                var adm = new Cliente
                 {
                     UserId= userAsp.Id
                 };
-                db.Admins.Add(adm);
+                db.Clientes.Add(adm);
                 db.SaveChanges();
             }
         
         }
 
-        private static void createUserASP(string email, string password, string role)
+        private static void CreateUserASP(string email, string password, string role)
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var userASP = new ApplicationUser()
