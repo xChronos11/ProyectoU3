@@ -35,3 +35,7 @@ body {
     background: inherit;    
     border-color: rgba(255, 255, 255, 0.4)
 }
+.bigicon {
+    font-size: 35px;
+    color: black;
+}

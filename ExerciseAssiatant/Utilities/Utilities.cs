@@ -20,7 +20,7 @@ namespace ExerciseAssiatant.Utilities
              {
                  roleManager.Create(new IdentityRole(roleName));
              }
-        } 
+        }
 
         internal static void CheckSuperUser()
         {
@@ -31,15 +31,25 @@ namespace ExerciseAssiatant.Utilities
             if (userAsp == null)
             {
                 CreateUserASP("admin@mail.com", "admin123", "Admin");
-                userAsp = userManager.FindByName("admin@mail.com");
-                var adm = new Cliente
-                {
-                    UserId= userAsp.Id
-                };
-                db.Clientes.Add(adm);
-                db.SaveChanges();
             }
-        
+        }
+        internal static void CheckClientDefault() 
+            { 
+              var clientdb = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+              var userclient = clientdb.FindByName("cliente@exercise.com");
+
+              if (userclient == null)
+              {
+                  CreateUserASP("cliente@exercise.com", "cliente123", "User");
+                  userclient = clientdb.FindByName("cliente@exercise.com");
+                  var usuario = new Cliente
+                  {
+                      UserId= userclient.Id
+                  };
+                  db.Clientes.Add(usuario);
+                  db.SaveChanges();
+              }
+          
         }
 
         private static void CreateUserASP(string email, string password, string role)

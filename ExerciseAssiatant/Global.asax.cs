@@ -22,6 +22,7 @@ namespace ExerciseAssiatant
 
             CheckRoles();
             Utilities.Utilities.CheckSuperUser();
+            Utilities.Utilities.CheckClientDefault();
         }
 
         private void CheckRoles()
