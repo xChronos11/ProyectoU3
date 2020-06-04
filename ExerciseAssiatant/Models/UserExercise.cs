@@ -12,7 +12,7 @@ namespace ExerciseAssiatant.Models
         public int Id { get; set; }
         public int ExerciseId { get; set; }
         [ForeignKey("ExerciseId")]
-        public Exercise Exercise { get; set; }
+        public ExerciseType ExerciseType { get; set; }
         [Required]
         [Display(Name="Duracion")]
         public TimeSpan Duration { get; set; }

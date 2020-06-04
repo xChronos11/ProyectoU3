@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace ExerciseAssiatant.Models
+{
+    public class ExerciseType
+    {
+        public int Id { get; set; }
+        [Required]
+        [Display(Name="Nombre")]
+        public string Name { get; set; }
+        [Required]
+        [Display(Name = "Calorias por hora")]
+        public float Cal4Hour { get; set; }
+    }
+}

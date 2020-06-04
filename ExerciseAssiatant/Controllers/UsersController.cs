@@ -18,12 +18,12 @@ namespace ExerciseAssiatant.Controllers
             var user = db.Users.Find(id);
             return View(user);
         }
+        
         // GET: Users/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
 
         // GET: Users/Edit/5
         public ActionResult Edit(int id)
