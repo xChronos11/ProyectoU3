@@ -10,6 +10,11 @@ namespace ExerciseAssiatant.Controllers
     {
         public ActionResult Index()
         {
+            //User.Identity.IsAuthenticated && 
+            if (User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Index", "Posts");
+            }
             return View();
         }
 
