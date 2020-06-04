@@ -11,6 +11,7 @@ namespace ExerciseAssiatant.Models
         public int Id { get; set; }
         [Required]
         [Display(Name="Nombre")]
+        [MaxLength(30)]
         public string Name { get; set; }
         [Required]
         [Display(Name = "Calorias por hora")]

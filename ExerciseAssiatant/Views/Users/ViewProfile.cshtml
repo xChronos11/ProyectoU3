@@ -1,9 +1,13 @@
 ﻿@model ExerciseAssiatant.Models.ApplicationUser
 @{
-    ViewBag.Title = "ViewProfile";
+    
+     if (User.Identity.IsAuthenticated)
+    {
+        Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    }
 }
 
-<h2>Profile</h2>
+<h2>Mi perfil</h2>
 
 <div class="justify-content-between">
     <div class="col-md-6">

@@ -174,6 +174,7 @@
     <Compile Include="Controllers\ExercisesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\UserExercisesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,12 +192,21 @@
     <Compile Include="Migrations\202006032352216_Profile.designer.cs">
       <DependentUpon>202006032352216_Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006040241503_Post_model.cs" />
+    <Compile Include="Migrations\202006040241503_Post_model.designer.cs">
+      <DependentUpon>202006040241503_Post_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006040414091_migReq.cs" />
+    <Compile Include="Migrations\202006040414091_migReq.designer.cs">
+      <DependentUpon>202006040414091_migReq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserExercise.cs" />
     <Compile Include="Models\UserViewModel.cs" />
@@ -382,6 +392,11 @@
     <Content Include="Views\Exercises\Edit.cshtml" />
     <Content Include="Views\Exercises\Index.cshtml" />
     <Content Include="Views\Users\ViewProfile.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Posts\Delete.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Posts\Edit.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -404,6 +419,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006032352216_Profile.resx">
       <DependentUpon>202006032352216_Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006040241503_Post_model.resx">
+      <DependentUpon>202006040241503_Post_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006040414091_migReq.resx">
+      <DependentUpon>202006040414091_migReq.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
