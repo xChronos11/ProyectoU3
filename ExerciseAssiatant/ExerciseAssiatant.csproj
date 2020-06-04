@@ -175,6 +175,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\UserExercisesController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +186,10 @@
     <Compile Include="Migrations\202006010455374_newMig.cs" />
     <Compile Include="Migrations\202006010455374_newMig.designer.cs">
       <DependentUpon>202006010455374_newMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006032352216_Profile.cs" />
+    <Compile Include="Migrations\202006032352216_Profile.designer.cs">
+      <DependentUpon>202006032352216_Profile.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -376,6 +381,7 @@
     <Content Include="Views\Exercises\Details.cshtml" />
     <Content Include="Views\Exercises\Edit.cshtml" />
     <Content Include="Views\Exercises\Index.cshtml" />
+    <Content Include="Views\Users\ViewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006010455374_newMig.resx">
       <DependentUpon>202006010455374_newMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006032352216_Profile.resx">
+      <DependentUpon>202006032352216_Profile.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

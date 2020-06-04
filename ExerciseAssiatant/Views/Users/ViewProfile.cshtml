@@ -1,0 +1,63 @@
+﻿@model ExerciseAssiatant.Models.ApplicationUser
+@{
+    ViewBag.Title = "ViewProfile";
+}
+
+<h2>Profile</h2>
+
+<div class="justify-content-between">
+    <div class="col-md-6">
+        <div class="card">
+            <img src="~/Content/img/Perfil/@Model.Picture" alt="Foto" width="100" />
+            <div class="card-header">Bienvenido a tu perfil: @Model.Email</div>
+            <div class="card-body">
+                <table>
+                    <tr>
+                        <td>Correo Electronico: </td>
+                        <td>@Model.Email</td>
+
+                    </tr>
+                    <tr>
+                        <td>Usuario:</td>
+                        <td>@Model.UserName</td>
+
+                    </tr>
+                    <tr>
+                        <td>Telofono:</td>
+                        <td>@Model.PhoneNumber</td>
+
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Actualiza tu perfil </div>
+            <div class="card-body">
+                <form action="@Url.Action("EditProfile","Users")" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4">Foto</label>
+                        <div class="col-md-10">
+                            <input type="file" name="Picture" class="form-control-file" value="" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <input type="submit" name="submit" value="Guardar" class="btn btn-primary" />
+                        </p>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
