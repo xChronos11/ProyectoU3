@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ExerciseAssiatant.Models;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +10,7 @@ namespace ExerciseAssiatant.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             //User.Identity.IsAuthenticated && 
@@ -15,6 +18,8 @@ namespace ExerciseAssiatant.Controllers
             {
                 return RedirectToAction("Index", "Posts");
             }
+
+            ViewBag.posts = db.Posts.ToList();
             return View();
         }
 

@@ -6,7 +6,7 @@
 }
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -31,7 +31,7 @@
         <div class="form-group">
             <label class="control-label col-md-2">Imagen</label>
             <div class="col-md-10">
-                <input type="file" accept="image/*" name="imgUrl" class="form-control-file" value="" />
+                <input type="file" accept="image/*" name="picture" class="form-control-file" value="Selecciona una imagen" />
             </div>
         </div>
 

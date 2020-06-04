@@ -49,19 +49,16 @@ namespace ExerciseAssiatant.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Post post, HttpPostedFile imageUrl)
+        public ActionResult Create(Post post, HttpPostedFileBase picture)
         {
-            if (ModelState.IsValid)
-            {
-                string imgPath = Server.MapPath("~/Content/img/" + User.Identity.GetUserId() + imageUrl.FileName);
-                imageUrl.SaveAs(imgPath);
-                post.imgUrl = imgPath;
+                string imgPath = Server.MapPath("~/Content/img/post/" + User.Identity.GetUserId() + picture.FileName);
+                string imgPath2 = "/Content/img/post/" + User.Identity.GetUserId() + picture.FileName;
+                picture.SaveAs(imgPath);
+                post.imgUrl = imgPath2;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-
-            return View(post);
+            //return View(post);
         }
 
         // GET: Posts/Edit/5
