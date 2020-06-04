@@ -6,6 +6,8 @@
         Layout = "~/Views/Shared/_LayoutUser.cshtml";
     }
 }
+ 
+
 <div class="jumbotron">
     <h1 class="display-4">Hello, world!</h1>
     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -16,20 +18,21 @@
     </p>
 </div>
 
-    <div class="row">
+<div class="row">
 
-        @foreach (ExerciseAssiatant.Models.Post p in ViewBag.posts)
-        {
-            <div class="col-sm">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="@p.imgUrl" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@p.title</h5>
-                        <p class="card-text">@p.text</p>
-                        @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
-                    </div>
+    @foreach (ExerciseAssiatant.Models.Post p in ViewBag.posts)
+    {
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="@p.imgUrl" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@p.title</h5>
+                    <p class="card-text">@p.text</p>
+                    @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
                 </div>
             </div>
-        }
-
-    </div>
+        </div>
+    }
+  
+    <script>$('.carousel').carousel()</script>
+</div>

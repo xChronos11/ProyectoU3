@@ -26,13 +26,37 @@
                     {
                         <li class="list-group-item"><a href="@Url.Action("index", "Posts")" class="text-white">Publicaciones</a></li>
                         <li class="list-group-item"><a href="@Url.Action("index", "Users")" class="text-white">Usuarios</a></li>
-                        <li class="list-group-item"><a href="@Url.Action("index", "ExerciseTypes")" class="text-white">Ejercicios disponibles</a></li>
+                        <li class="list-group-item"><a href="@Url.Action("index", "Exercises")" class="text-white">Ejercicios disponibles</a></li>
+
+                        <li class="list-group-item">
+
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                                </ul>
+                            }
+                        </li>
+
                     }
                     else
                     {
                         <li class="list-group-item"><a href="@Url.Action("index", "Home")" class="text-white">Inicio</a></li>
-                        <li class="list-group-item"><a href="@Url.Action("index", "Home")" class="text-white">Mi perfil</a></li>
+                        <li class="list-group-item"><a href="@Url.Action("ViewProfile", "Users")" class="text-white">Mi perfil</a></li>
                         <li class="list-group-item"><a href="@Url.Action("index", "UserExercises", new { id = User.Identity.GetUserId()})" class="text-white">Seciones de ejercicio</a></li>
+                        <li class="list-group-item">
+
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="" href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesion</a></li>
+                                </ul>
+                            }
+                        </li>
                     }
                         <li class="list-group-item"><a href="#" class="text-white">Cerrar sesión</a></li>
                 </ul>

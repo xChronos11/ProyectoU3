@@ -12,12 +12,12 @@ namespace ExerciseAssiatant.Models
         public int Id { get; set; }
         [DisplayName("Titulo")]
         [Required]
-        public string title { get; set; }
+        public string Title { get; set; }
         [DisplayName("Contenido")]
         [Required]
-        public string text { get; set; }
+        public string Text { get; set; }
         [DisplayName("Imagen")]
         [Required]
-        public string imgUrl { get; set; }
+        public string ImgUrl { get; set; }
     }
 }

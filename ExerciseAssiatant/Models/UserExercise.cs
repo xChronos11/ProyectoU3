@@ -10,6 +10,7 @@ namespace ExerciseAssiatant.Models
     public class UserExercise
     {
         public int Id { get; set; }
+        [Display(Name = "Ejercicio")]
         public int ExerciseId { get; set; }
         [ForeignKey("ExerciseId")]
         public ExerciseType ExerciseType { get; set; }
