@@ -14,7 +14,7 @@ namespace ExerciseAssiatant.Controllers
         // GET: UserExercise
         public ActionResult Index(string id)
         {
-            return View(db.UserExercises.Where(ue => ue.Cliente.UserId == id));
+            return View(db.UserExercises.Where(ue => ue.UsuarioId== id));
         }
 
         // GET: UserExercise/Details/5

@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202006050639406_mig.designer.cs">
       <DependentUpon>202006050639406_mig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006050700082_newmig.cs" />
+    <Compile Include="Migrations\202006050700082_newmig.designer.cs">
+      <DependentUpon>202006050700082_newmig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -412,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006050639406_mig.resx">
       <DependentUpon>202006050639406_mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006050700082_newmig.resx">
+      <DependentUpon>202006050700082_newmig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
