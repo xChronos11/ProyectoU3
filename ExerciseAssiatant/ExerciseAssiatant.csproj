@@ -177,6 +177,7 @@
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\UserExercisesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UsersDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -200,6 +201,10 @@
     <Compile Include="Migrations\202006040414091_migReq.designer.cs">
       <DependentUpon>202006040414091_migReq.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006042351330_Data.cs" />
+    <Compile Include="Migrations\202006042351330_Data.designer.cs">
+      <DependentUpon>202006042351330_Data.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -216,6 +221,7 @@
     <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\2017-08-bicycling-04.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -223,6 +229,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\junction-984045_1280.jpg" />
+    <Content Include="Content\img\running.jpg" />
+    <Content Include="Content\img\soccer.jpg" />
     <Content Include="Content\img\sports-731506_1280.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -397,9 +405,15 @@
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\UsersData\Create.cshtml" />
+    <Content Include="Views\UsersData\Delete.cshtml" />
+    <Content Include="Views\UsersData\Details.cshtml" />
+    <Content Include="Views\UsersData\Edit.cshtml" />
+    <Content Include="Views\UsersData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\perfil\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -425,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006040414091_migReq.resx">
       <DependentUpon>202006040414091_migReq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006042351330_Data.resx">
+      <DependentUpon>202006042351330_Data.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

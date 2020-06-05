@@ -2,118 +2,115 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ExerciseAssiatant.Models;
-using Microsoft.AspNet.Identity;
 
 namespace ExerciseAssiatant.Controllers
 {
-    [Authorize]
-    public class PostsController : Controller
+    public class UsersDataController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Posts
+        // GET: UsersData
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+            return View(db.Userss.ToList());
         }
 
-        // GET: Posts/Details/5
+        // GET: UsersData/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
-            if (post == null)
+            User user = db.Userss.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            return View(user);
         }
 
-        // GET: Posts/Create
+        // GET: UsersData/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Posts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: UsersData/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Post post, HttpPostedFileBase picture)
+        public ActionResult Create([Bind(Include = "Id,Birthdate,Male,Height,Weight,BMI")] User user)
         {
-                string imgPath = Server.MapPath("~/Content/img/post/" + User.Identity.GetUserId() + picture.FileName);
-                string imgPath2 = "/Content/img/post/" + User.Identity.GetUserId() + picture.FileName;
-                picture.SaveAs(imgPath);
-                post.ImgUrl = imgPath2;
-                db.Posts.Add(post);
+            if (ModelState.IsValid)
+            {
+                db.Userss.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            //return View(post);
+            }
+
+            return View(user);
         }
 
-        // GET: Posts/Edit/5
+        // GET: UsersData/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
-            if (post == null)
+            User user = db.Userss.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            return View(user);
         }
 
-        // POST: Posts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: UsersData/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,title,text,imgUrl")] Post post)
+        public ActionResult Edit([Bind(Include = "Id,Birthdate,Male,Height,Weight,BMI")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(post);
+            return View(user);
         }
 
-        // GET: Posts/Delete/5
+        // GET: UsersData/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
-            if (post == null)
+            User user = db.Userss.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(post);
+            return View(user);
         }
 
-        // POST: Posts/Delete/5
+        // POST: UsersData/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Post post = db.Posts.Find(id);
-            db.Posts.Remove(post);
+            User user = db.Userss.Find(id);
+            db.Userss.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
