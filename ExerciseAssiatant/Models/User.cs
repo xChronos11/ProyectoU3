@@ -12,6 +12,10 @@ namespace ExerciseAssiatant.Models
         [Required]
         [Display(Name = "Fecha de nacimiento")]
         public DateTime Birthdate { get; set; }
+        [Display (Name = "Mujer")]
+        
+        public bool Female { get; set; }
+        [Display(Name = "Hombre")]
         public bool Male { get; set; }
         [Required]
         [Display(Name = "Altura")]

@@ -205,6 +205,14 @@
     <Compile Include="Migrations\202006042351330_Data.designer.cs">
       <DependentUpon>202006042351330_Data.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006050134516_Props.cs" />
+    <Compile Include="Migrations\202006050134516_Props.designer.cs">
+      <DependentUpon>202006050134516_Props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006050150401_Props Register.cs" />
+    <Compile Include="Migrations\202006050150401_Props Register.designer.cs">
+      <DependentUpon>202006050150401_Props Register.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -442,6 +450,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006042351330_Data.resx">
       <DependentUpon>202006042351330_Data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006050134516_Props.resx">
+      <DependentUpon>202006050134516_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006050150401_Props Register.resx">
+      <DependentUpon>202006050150401_Props Register.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
