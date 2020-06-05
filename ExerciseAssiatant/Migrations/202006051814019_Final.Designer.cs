@@ -7,13 +7,13 @@ namespace ExerciseAssiatant.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class a_mig : IMigrationMetadata
+    public sealed partial class Final : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(a_mig));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Final));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006051456111_a_mig"; }
+            get { return "202006051814019_Final"; }
         }
         
         string IMigrationMetadata.Source

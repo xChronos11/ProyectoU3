@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class correction : DbMigration
+    public partial class Final : DbMigration
     {
         public override void Up()
         {
@@ -117,12 +117,15 @@
                         Duration = c.Time(nullable: false, precision: 7),
                         Date = c.DateTime(nullable: false),
                         Cliente_Id = c.Int(),
+                        Usr_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Clientes", t => t.Cliente_Id)
                 .ForeignKey("dbo.ExerciseTypes", t => t.ExerciseId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.Usr_Id)
                 .Index(t => t.ExerciseId)
-                .Index(t => t.Cliente_Id);
+                .Index(t => t.Cliente_Id)
+                .Index(t => t.Usr_Id);
             
             CreateTable(
                 "dbo.Users",
@@ -134,17 +137,15 @@
                         Height = c.Single(nullable: false),
                         Weight = c.Single(nullable: false),
                         BMI = c.Single(nullable: false),
-                        ApplicationUser_Id = c.String(maxLength: 128),
+                        usrId = c.String(),
                     })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
-                .Index(t => t.ApplicationUser_Id);
+                .PrimaryKey(t => t.Id);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Users", "ApplicationUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.UserExercises", "Usr_Id", "dbo.Users");
             DropForeignKey("dbo.UserExercises", "ExerciseId", "dbo.ExerciseTypes");
             DropForeignKey("dbo.UserExercises", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
@@ -152,7 +153,7 @@
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropIndex("dbo.Users", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.UserExercises", new[] { "Usr_Id" });
             DropIndex("dbo.UserExercises", new[] { "Cliente_Id" });
             DropIndex("dbo.UserExercises", new[] { "ExerciseId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");

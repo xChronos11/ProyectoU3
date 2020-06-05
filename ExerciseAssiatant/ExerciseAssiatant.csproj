@@ -190,21 +190,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006050734585_correction.cs" />
-    <Compile Include="Migrations\202006050734585_correction.designer.cs">
-      <DependentUpon>202006050734585_correction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006050801591_mig.cs" />
-    <Compile Include="Migrations\202006050801591_mig.designer.cs">
-      <DependentUpon>202006050801591_mig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006051437435_a mig.cs" />
-    <Compile Include="Migrations\202006051437435_a mig.designer.cs">
-      <DependentUpon>202006051437435_a mig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006051456111_a_mig.cs" />
-    <Compile Include="Migrations\202006051456111_a_mig.designer.cs">
-      <DependentUpon>202006051456111_a_mig.cs</DependentUpon>
+    <Compile Include="Migrations\202006051814019_Final.cs" />
+    <Compile Include="Migrations\202006051814019_Final.designer.cs">
+      <DependentUpon>202006051814019_Final.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -415,17 +403,8 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006050734585_correction.resx">
-      <DependentUpon>202006050734585_correction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050801591_mig.resx">
-      <DependentUpon>202006050801591_mig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006051437435_a mig.resx">
-      <DependentUpon>202006051437435_a mig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006051456111_a_mig.resx">
-      <DependentUpon>202006051456111_a_mig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006051814019_Final.resx">
+      <DependentUpon>202006051814019_Final.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
