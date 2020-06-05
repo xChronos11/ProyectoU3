@@ -20,7 +20,7 @@ namespace ExerciseAssiatant.Models
         [Required]
         [Display(Name = "Fecha")]
         public DateTime Date { get; set; }
-        public Cliente Cliente { get; set; }
+        public ApplicationUser Cliente { get; set; }
 
        
     }

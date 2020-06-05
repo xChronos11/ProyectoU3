@@ -390,6 +390,7 @@
     <Content Include="Views\ExerciseTypes\Edit.cshtml" />
     <Content Include="Views\ExerciseTypes\Index.cshtml" />
     <Content Include="Views\UserExercises\Index.cshtml" />
+    <Content Include="Views\UserExercises\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -25,17 +25,18 @@ namespace ExerciseAssiatant.Controllers
         // GET: UserExercise/Create
         public ActionResult Create()
         {
+            ViewBag.ExerciseId = new SelectList(db.ExerciseTypes, "Id", "Name");
             return View();
         }
 
         // POST: UserExercise/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(UserExercise ue)
         {
             try
             {
                 // TODO: Add insert logic here
-
+                ue.Cliente = db.Clientes
                 return RedirectToAction("Index");
             }
             catch

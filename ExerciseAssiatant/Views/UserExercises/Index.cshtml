@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ExerciseAssiatant.Models.UserExercise>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Registro de actividad fisica";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", )
 </p>
 <table class="table">
     <tr>
@@ -24,23 +24,58 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExerciseType.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
-</table>
+</table>*@
+
+    <div>
+        <div class="row">
+            <div class="col-4">
+                <div class="text-center mb-2">
+                    <a href="@Url.Action("Create", "UserExercises")" class="btn btn-sm btn-outline-success text-center">Agregar</a>
+                </div>
+                <div id="list-example" class="list-group">
+                    <a class="list-group-item list-group-item-action p-2 active" href="#list-item-1">Item 1</a>
+                </div>
+            </div>
+            <div class="col-8" style="height:75vh;">
+                <div data-spy="scroll" data-target="#list-example" data-offset="0" class="h-100" style="overflow-y: scroll;">
+                        @foreach (ExerciseAssiatant.Models.UserExercise ue in Model)
+                        {
+                            <div>
+                                <h5 id="list-item-1">@ue.ExerciseType.Name</h5>
+                                <div class="row m-0">
+                                    <div class="col-8">
+                                        @ue.Duration
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="#">Editar</a>
+                                        <a href="#">Eliminar</a>
+                                    </div>
+                                </div>
+                                <hr />
+                            </div>
+                        }
+
+                </div>
+            </div>
+        </div>
+    </div>

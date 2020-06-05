@@ -52,7 +52,7 @@ namespace ExerciseAssiatant.Utilities
           
         }
 
-        private static void CreateUserASP(string email, string password, string role)
+        public static void CreateUserASP(string email, string password, string role)
         {
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var userASP = new ApplicationUser()

@@ -33,7 +33,7 @@ namespace ExerciseAssiatant.Models
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<ExerciseType> ExerciseTypes { get; set; }
-        public DbSet<User> Userss { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<UserExercise> UserExercises { get; set; }
         public DbSet<Post> Posts { get; set; }
     }
