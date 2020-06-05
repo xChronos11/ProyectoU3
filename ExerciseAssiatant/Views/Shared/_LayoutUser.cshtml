@@ -1,4 +1,16 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using ExerciseAssiatant.Utilities;
+
+@{ 
+    ExerciseAssiatant.Models.ApplicationDbContext db = new ExerciseAssiatant.Models.ApplicationDbContext();
+    double iw = 0;
+    double iw_diff = 0;
+    //if (!@User.IsInRole("Admin"))
+    //{
+
+
+    //}
+}
 <!DOCTYPE html>
 
 <html>
@@ -19,7 +31,13 @@
             <div class="circle-img rounded-circle mx-auto mt-5" id="divImg"></div>
 
             <div class="container pt-3">
-                <h5 class="text-white text-center">@User.Identity.Name</h5>
+                <h5 class="text-white text-center mb-2">@User.Identity.Name</h5>
+                @if (!User.IsInRole("Admin"))
+                {
+                    <br>
+                    <h6 class="text-white text-center"> Diferencia en peso: @ViewBag.iw_diff kg</h6>
+                    <h6 class="text-white text-center"> Diferencia en calorias: @ViewBag.cals</h6>
+                }
 
                 <ul class="list-group list-group-flush mt-3">
                     @if (User.IsInRole("Admin"))
@@ -72,7 +90,6 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
         @{
-            ExerciseAssiatant.Models.ApplicationDbContext db = new ExerciseAssiatant.Models.ApplicationDbContext();
             var id = User.Identity.GetUserId();
             var pic = db.Users.Find(id).Picture;
 
