@@ -54,7 +54,7 @@ namespace ExerciseAssiatant.Controllers
                 string imgPath = Server.MapPath("~/Content/img/post/" + User.Identity.GetUserId() + picture.FileName);
                 string imgPath2 = "/Content/img/post/" + User.Identity.GetUserId() + picture.FileName;
                 picture.SaveAs(imgPath);
-                post.imgUrl = imgPath2;
+                post.ImgUrl = imgPath2;
                 db.Posts.Add(post);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -194,6 +194,10 @@
     <Compile Include="Migrations\202006042111550_regeneration.designer.cs">
       <DependentUpon>202006042111550_regeneration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006050002568_merge corrections.cs" />
+    <Compile Include="Migrations\202006050002568_merge corrections.designer.cs">
+      <DependentUpon>202006050002568_merge corrections.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -403,6 +407,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202006042111550_regeneration.resx">
       <DependentUpon>202006042111550_regeneration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006050002568_merge corrections.resx">
+      <DependentUpon>202006050002568_merge corrections.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
