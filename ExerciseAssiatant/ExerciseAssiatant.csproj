@@ -58,12 +58,21 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -170,53 +179,29 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ExercisesController.cs" />
+    <Compile Include="Controllers\ExerciseTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\UserExercisesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="Controllers\UsersDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006010352539_mig.cs" />
-    <Compile Include="Migrations\202006010352539_mig.designer.cs">
-      <DependentUpon>202006010352539_mig.cs</DependentUpon>
+    <Compile Include="Migrations\202006042111550_regeneration.cs" />
+    <Compile Include="Migrations\202006042111550_regeneration.designer.cs">
+      <DependentUpon>202006042111550_regeneration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006010455374_newMig.cs" />
-    <Compile Include="Migrations\202006010455374_newMig.designer.cs">
-      <DependentUpon>202006010455374_newMig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006032352216_Profile.cs" />
-    <Compile Include="Migrations\202006032352216_Profile.designer.cs">
-      <DependentUpon>202006032352216_Profile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006040241503_Post_model.cs" />
-    <Compile Include="Migrations\202006040241503_Post_model.designer.cs">
-      <DependentUpon>202006040241503_Post_model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006040414091_migReq.cs" />
-    <Compile Include="Migrations\202006040414091_migReq.designer.cs">
-      <DependentUpon>202006040414091_migReq.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006042351330_Data.cs" />
-    <Compile Include="Migrations\202006042351330_Data.designer.cs">
-      <DependentUpon>202006042351330_Data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006050134516_Props.cs" />
-    <Compile Include="Migrations\202006050134516_Props.designer.cs">
-      <DependentUpon>202006050134516_Props.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202006050150401_Props Register.cs" />
-    <Compile Include="Migrations\202006050150401_Props Register.designer.cs">
-      <DependentUpon>202006050150401_Props Register.cs</DependentUpon>
+    <Compile Include="Migrations\202006050002568_merge corrections.cs" />
+    <Compile Include="Migrations\202006050002568_merge corrections.designer.cs">
+      <DependentUpon>202006050002568_merge corrections.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Exercise.cs" />
+    <Compile Include="Models\ExerciseType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
@@ -229,7 +214,6 @@
     <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\img\2017-08-bicycling-04.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -237,8 +221,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\img\junction-984045_1280.jpg" />
-    <Content Include="Content\img\running.jpg" />
-    <Content Include="Content\img\soccer.jpg" />
     <Content Include="Content\img\sports-731506_1280.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -396,32 +378,22 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
-    <Content Include="Views\UserExercises\Create.cshtml" />
-    <Content Include="Views\UserExercises\Delete.cshtml" />
-    <Content Include="Views\UserExercises\Details.cshtml" />
-    <Content Include="Views\UserExercises\Edit.cshtml" />
-    <Content Include="Views\UserExercises\Index.cshtml" />
-    <Content Include="Views\UserExercises\AllExcercise.cshtml" />
-    <Content Include="Views\Exercises\Create.cshtml" />
-    <Content Include="Views\Exercises\Delete.cshtml" />
-    <Content Include="Views\Exercises\Details.cshtml" />
-    <Content Include="Views\Exercises\Edit.cshtml" />
-    <Content Include="Views\Exercises\Index.cshtml" />
     <Content Include="Views\Users\ViewProfile.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />
     <Content Include="Views\Posts\Delete.cshtml" />
     <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
-    <Content Include="Views\UsersData\Create.cshtml" />
-    <Content Include="Views\UsersData\Delete.cshtml" />
-    <Content Include="Views\UsersData\Details.cshtml" />
-    <Content Include="Views\UsersData\Edit.cshtml" />
-    <Content Include="Views\UsersData\Index.cshtml" />
+    <Content Include="Views\ExerciseTypes\Create.cshtml" />
+    <Content Include="Views\ExerciseTypes\Delete.cshtml" />
+    <Content Include="Views\ExerciseTypes\Details.cshtml" />
+    <Content Include="Views\ExerciseTypes\Edit.cshtml" />
+    <Content Include="Views\ExerciseTypes\Index.cshtml" />
+    <Content Include="Views\UserExercises\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\perfil\" />
+    <Folder Include="Views\UserExercise\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -433,29 +405,11 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006010352539_mig.resx">
-      <DependentUpon>202006010352539_mig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006042111550_regeneration.resx">
+      <DependentUpon>202006042111550_regeneration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006010455374_newMig.resx">
-      <DependentUpon>202006010455374_newMig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006032352216_Profile.resx">
-      <DependentUpon>202006032352216_Profile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006040241503_Post_model.resx">
-      <DependentUpon>202006040241503_Post_model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006040414091_migReq.resx">
-      <DependentUpon>202006040414091_migReq.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006042351330_Data.resx">
-      <DependentUpon>202006042351330_Data.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050134516_Props.resx">
-      <DependentUpon>202006050134516_Props.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050150401_Props Register.resx">
-      <DependentUpon>202006050150401_Props Register.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006050002568_merge corrections.resx">
+      <DependentUpon>202006050002568_merge corrections.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

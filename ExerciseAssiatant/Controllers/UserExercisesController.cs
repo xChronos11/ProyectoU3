@@ -1,145 +1,91 @@
-﻿using System;
+﻿using ExerciseAssiatant.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ExerciseAssiatant.Models;
-using Microsoft.AspNet.Identity;
 
 namespace ExerciseAssiatant.Controllers
 {
     public class UserExercisesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
-
-        public ActionResult AllExcercise() 
+        ApplicationDbContext db = new ApplicationDbContext();
+        // GET: UserExercise
+        public ActionResult Index(string id)
         {
-            var userExercise = db.UserExercises.ToList();
+            return View(db.UserExercises.Where(ue => ue.Cliente.UserId == id));
+        }
+
+        // GET: UserExercise/Details/5
+        public ActionResult Details(int id)
+        {
             return View();
         }
-        // GET: UserExercises
-        public ActionResult Index()
-        {
-            var user = User.Identity.GetUserId();
-            var a = db.Clientes.Where(ad => ad.UserId == user).FirstOrDefault();
-            var userExcercises = db.UserExercises.Include(u => u.Cliente).Where(us => us.Cliente.Id == a.Id).ToList();
 
-            return View(userExcercises);
-        }
-
-
-        // GET: UserExercises/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserExercise userExercise = db.UserExercises.Find(id);
-            if (userExercise == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userExercise);
-        }
-
-        // GET: UserExercises/Create
+        // GET: UserExercise/Create
         public ActionResult Create()
         {
-            ViewBag.ExerciseId = new SelectList(db.Exercises, "Id", "Name");
             return View();
         }
 
-        // POST: UserExercises/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: UserExercise/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create( UserExercise userExercise)
+        public ActionResult Create(FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                var userid = User.Identity.GetUserId();
-                var adm = db.Clientes.Where(a => a.UserId == userid).FirstOrDefault();
-                userExercise.ExerciseId = adm.Id;
-                db.UserExercises.Add(userExercise);
-                db.SaveChanges();
+                // TODO: Add insert logic here
+
                 return RedirectToAction("Index");
             }
-
-            
-            return View(userExercise);
+            catch
+            {
+                return View();
+            }
         }
 
-        // GET: UserExercises/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: UserExercise/Edit/5
+        public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserExercise userExercise = db.UserExercises.Find(id);
-            if (userExercise == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ExerciseId = new SelectList(db.Exercises, "Id", "Name", userExercise.ExerciseId);
-            return View(userExercise);
+            return View();
         }
 
-        // POST: UserExercises/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: UserExercise/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ExerciseId,Duration,Date")] UserExercise userExercise)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(userExercise).State = EntityState.Modified;
-                db.SaveChanges();
+                // TODO: Add update logic here
+
                 return RedirectToAction("Index");
             }
-            ViewBag.ExerciseId = new SelectList(db.Exercises, "Id", "Name", userExercise.ExerciseId);
-            return View(userExercise);
+            catch
+            {
+                return View();
+            }
         }
 
-        // GET: UserExercises/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: UserExercise/Delete/5
+        public ActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            UserExercise userExercise = db.UserExercises.Find(id);
-            if (userExercise == null)
-            {
-                return HttpNotFound();
-            }
-            return View(userExercise);
+            return View();
         }
 
-        // POST: UserExercises/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        // POST: UserExercise/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            UserExercise userExercise = db.UserExercises.Find(id);
-            db.UserExercises.Remove(userExercise);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
+            try
             {
-                db.Dispose();
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
             }
-            base.Dispose(disposing);
+            catch
+            {
+                return View();
+            }
         }
     }
 }

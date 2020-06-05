@@ -7,13 +7,13 @@ namespace ExerciseAssiatant.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class mig : IMigrationMetadata
+    public sealed partial class mergecorrections : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(mig));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mergecorrections));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006010352539_mig"; }
+            get { return "202006050002568_merge corrections"; }
         }
         
         string IMigrationMetadata.Source

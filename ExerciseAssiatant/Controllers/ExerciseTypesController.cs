@@ -10,107 +10,107 @@ using ExerciseAssiatant.Models;
 
 namespace ExerciseAssiatant.Controllers
 {
-    public class ExercisesController : Controller
+    public class ExerciseTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Exercises
+        // GET: ExerciseTypes
         public ActionResult Index()
         {
-            return View(db.Exercises.ToList());
+            return View(db.ExerciseTypes.ToList());
         }
 
-        // GET: Exercises/Details/5
+        // GET: ExerciseTypes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = db.Exercises.Find(id);
-            if (exercise == null)
+            ExerciseType exerciseType = db.ExerciseTypes.Find(id);
+            if (exerciseType == null)
             {
                 return HttpNotFound();
             }
-            return View(exercise);
+            return View(exerciseType);
         }
 
-        // GET: Exercises/Create
+        // GET: ExerciseTypes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Exercises/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // POST: ExerciseTypes/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Cal4Hour")] Exercise exercise)
+        public ActionResult Create([Bind(Include = "Id,Name,Cal4Hour")] ExerciseType exerciseType)
         {
             if (ModelState.IsValid)
             {
-                db.Exercises.Add(exercise);
+                db.ExerciseTypes.Add(exerciseType);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(exercise);
+            return View(exerciseType);
         }
 
-        // GET: Exercises/Edit/5
+        // GET: ExerciseTypes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = db.Exercises.Find(id);
-            if (exercise == null)
+            ExerciseType exerciseType = db.ExerciseTypes.Find(id);
+            if (exerciseType == null)
             {
                 return HttpNotFound();
             }
-            return View(exercise);
+            return View(exerciseType);
         }
 
-        // POST: Exercises/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // POST: ExerciseTypes/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Cal4Hour")] Exercise exercise)
+        public ActionResult Edit([Bind(Include = "Id,Name,Cal4Hour")] ExerciseType exerciseType)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(exercise).State = EntityState.Modified;
+                db.Entry(exerciseType).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(exercise);
+            return View(exerciseType);
         }
 
-        // GET: Exercises/Delete/5
+        // GET: ExerciseTypes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Exercise exercise = db.Exercises.Find(id);
-            if (exercise == null)
+            ExerciseType exerciseType = db.ExerciseTypes.Find(id);
+            if (exerciseType == null)
             {
                 return HttpNotFound();
             }
-            return View(exercise);
+            return View(exerciseType);
         }
 
-        // POST: Exercises/Delete/5
+        // POST: ExerciseTypes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Exercise exercise = db.Exercises.Find(id);
-            db.Exercises.Remove(exercise);
+            ExerciseType exerciseType = db.ExerciseTypes.Find(id);
+            db.ExerciseTypes.Remove(exerciseType);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
