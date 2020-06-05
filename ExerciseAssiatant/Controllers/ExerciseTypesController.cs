@@ -10,6 +10,7 @@ using ExerciseAssiatant.Models;
 
 namespace ExerciseAssiatant.Controllers
 {
+    [Authorize]
     public class ExerciseTypesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

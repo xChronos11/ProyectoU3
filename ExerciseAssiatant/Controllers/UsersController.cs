@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ExerciseAssiatant.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         readonly ApplicationDbContext db = new ApplicationDbContext();

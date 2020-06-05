@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace ExerciseAssiatant.Controllers
 {
+    [Authorize]
     public class UserExercisesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
