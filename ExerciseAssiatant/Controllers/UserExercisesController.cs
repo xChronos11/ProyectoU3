@@ -14,7 +14,7 @@ namespace ExerciseAssiatant.Controllers
         // GET: UserExercise
         public ActionResult Index(string id)
         {
-            return View(db.UserExercises.Where(ue => ue.Cliente.UserId == id));
+            return View(db.UserExercises.Where(ue => ue.UsuarioId== id));
         }
 
         // GET: UserExercise/Details/5
@@ -37,7 +37,7 @@ namespace ExerciseAssiatant.Controllers
             try
             {
                 // TODO: Add insert logic here
-                ue.Cliente = db.Clientes
+                //ue.Cliente = db.Clientes
                 return RedirectToAction("Index");
             }
             catch

@@ -202,6 +202,10 @@
     <Compile Include="Migrations\202006050307514_Resolve.designer.cs">
       <DependentUpon>202006050307514_Resolve.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006050700082_newmig.cs" />
+    <Compile Include="Migrations\202006050700082_newmig.designer.cs">
+      <DependentUpon>202006050700082_newmig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -419,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006050307514_Resolve.resx">
       <DependentUpon>202006050307514_Resolve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006050700082_newmig.resx">
+      <DependentUpon>202006050700082_newmig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
