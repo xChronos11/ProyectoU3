@@ -12,10 +12,6 @@ namespace ExerciseAssiatant.Models
         [Required]
         [Display(Name = "Fecha de nacimiento")]
         public DateTime Birthdate { get; set; }
-        [Display (Name = "Mujer")]
-        
-        public bool Female { get; set; }
-        [Display(Name = "Hombre")]
         public bool Male { get; set; }
         [Required]
         [Display(Name = "Altura")]
@@ -26,6 +22,6 @@ namespace ExerciseAssiatant.Models
         [Required]
         [Display(Name="Indice de masa corporal")]
         public float BMI { get; set; }
-        public ApplicationUser ApplicationUser { get; set; }
+        public string usrId { get; set; }
     }
 }

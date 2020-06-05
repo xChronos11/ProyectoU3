@@ -190,17 +190,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006042111550_regeneration.cs" />
-    <Compile Include="Migrations\202006042111550_regeneration.designer.cs">
-      <DependentUpon>202006042111550_regeneration.cs</DependentUpon>
+    <Compile Include="Migrations\202006050734585_correction.cs" />
+    <Compile Include="Migrations\202006050734585_correction.designer.cs">
+      <DependentUpon>202006050734585_correction.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006050002568_merge corrections.cs" />
-    <Compile Include="Migrations\202006050002568_merge corrections.designer.cs">
-      <DependentUpon>202006050002568_merge corrections.cs</DependentUpon>
+    <Compile Include="Migrations\202006050801591_mig.cs" />
+    <Compile Include="Migrations\202006050801591_mig.designer.cs">
+      <DependentUpon>202006050801591_mig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006050307514_Resolve.cs" />
-    <Compile Include="Migrations\202006050307514_Resolve.designer.cs">
-      <DependentUpon>202006050307514_Resolve.cs</DependentUpon>
+    <Compile Include="Migrations\202006051437435_a mig.cs" />
+    <Compile Include="Migrations\202006051437435_a mig.designer.cs">
+      <DependentUpon>202006051437435_a mig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006051456111_a_mig.cs" />
+    <Compile Include="Migrations\202006051456111_a_mig.designer.cs">
+      <DependentUpon>202006051456111_a_mig.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -395,6 +399,7 @@
     <Content Include="Views\ExerciseTypes\Edit.cshtml" />
     <Content Include="Views\ExerciseTypes\Index.cshtml" />
     <Content Include="Views\UserExercises\Index.cshtml" />
+    <Content Include="Views\UserExercises\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -410,14 +415,17 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202006042111550_regeneration.resx">
-      <DependentUpon>202006042111550_regeneration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006050734585_correction.resx">
+      <DependentUpon>202006050734585_correction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050002568_merge corrections.resx">
-      <DependentUpon>202006050002568_merge corrections.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006050801591_mig.resx">
+      <DependentUpon>202006050801591_mig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006050307514_Resolve.resx">
-      <DependentUpon>202006050307514_Resolve.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202006051437435_a mig.resx">
+      <DependentUpon>202006051437435_a mig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006051456111_a_mig.resx">
+      <DependentUpon>202006051456111_a_mig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

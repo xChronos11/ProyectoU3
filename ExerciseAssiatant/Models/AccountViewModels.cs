@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace ExerciseAssiatant.Models
@@ -81,12 +80,7 @@ namespace ExerciseAssiatant.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Fecha de nacimiento")]
-        public DateTime Birthdate { get; set; }
-        [Display(Name = "Mujer")]
-
-        public bool Female { get; set; }
-        [Display(Name = "Hombre")]
+        public System.DateTime Birthdate { get; set; }
         public bool Male { get; set; }
         [Required]
         [Display(Name = "Altura")]
@@ -94,9 +88,6 @@ namespace ExerciseAssiatant.Models
         [Required]
         [Display(Name = "Peso")]
         public float Weight { get; set; }
-        [Required]
-        [Display(Name = "Indice de masa corporal")]
-        public float BMI { get; set; }
     }
 
     public class ResetPasswordViewModel

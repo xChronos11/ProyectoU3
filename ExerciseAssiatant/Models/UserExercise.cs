@@ -21,6 +21,7 @@ namespace ExerciseAssiatant.Models
         [Display(Name = "Fecha")]
         public DateTime Date { get; set; }
         public Cliente Cliente { get; set; }
+        public User Usr { get; set; }
 
        
     }
