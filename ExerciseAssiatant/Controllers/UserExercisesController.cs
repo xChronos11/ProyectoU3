@@ -37,7 +37,7 @@ namespace ExerciseAssiatant.Controllers
             try
             {
                 // TODO: Add insert logic here
-                ue.Cliente = db.Clientes
+                //ue.Cliente = db.Clientes
                 return RedirectToAction("Index");
             }
             catch
