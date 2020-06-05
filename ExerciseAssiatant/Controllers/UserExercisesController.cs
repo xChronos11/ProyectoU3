@@ -15,8 +15,15 @@ namespace ExerciseAssiatant.Controllers
         // GET: UserExercise
         public ActionResult Index(string id)
         {
-            var use = db.UserExercises.ToList();
-            var ls = db.UserExercises.Where(ue => ue.Cliente.UserId == id).ToList();
+            //var use = db.UserExercises.ToList();
+            var realId = db.Userss.Where(u => u.usrId == id).FirstOrDefault().Id;
+            var ls = db.UserExercises.Where(ue => ue.Usr.Id == realId).ToList();
+
+            for (int i = 0; i < ls.Count; i++)
+            {
+                ls[i].ExerciseType = db.ExerciseTypes.Find(ls[i].ExerciseId);
+            }
+
             return View(ls);
         }
 
