@@ -58,7 +58,7 @@ namespace ExerciseAssiatant.Controllers
 
                 var id = User.Identity.GetUserId();
                 var userdb = db.Users.Find(id);
-                userdb.ApplicationUser.Picture = User.Identity.GetUserName() + "_" + nombreArchivo;
+                userdb.Picture = User.Identity.GetUserName() + "_" + nombreArchivo;
                 db.Entry(userdb).State = EntityState.Modified;
                 db.SaveChanges();
             }

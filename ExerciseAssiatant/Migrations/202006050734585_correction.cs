@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class regeneration : DbMigration
+    public partial class correction : DbMigration
     {
         public override void Up()
         {
@@ -116,10 +116,10 @@
                         ExerciseId = c.Int(nullable: false),
                         Duration = c.Time(nullable: false, precision: 7),
                         Date = c.DateTime(nullable: false),
-                        Cliente_Id = c.String(maxLength: 128),
+                        Cliente_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.Cliente_Id)
+                .ForeignKey("dbo.Clientes", t => t.Cliente_Id)
                 .ForeignKey("dbo.ExerciseTypes", t => t.ExerciseId, cascadeDelete: true)
                 .Index(t => t.ExerciseId)
                 .Index(t => t.Cliente_Id);
@@ -130,8 +130,6 @@
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Birthdate = c.DateTime(nullable: false),
-                        Female = c.Boolean(nullable: false),
-                        Picture = c.String(),
                         Male = c.Boolean(nullable: false),
                         Height = c.Single(nullable: false),
                         Weight = c.Single(nullable: false),
@@ -148,7 +146,7 @@
         {
             DropForeignKey("dbo.Users", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.UserExercises", "ExerciseId", "dbo.ExerciseTypes");
-            DropForeignKey("dbo.UserExercises", "Cliente_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.UserExercises", "Cliente_Id", "dbo.Clientes");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Clientes", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");

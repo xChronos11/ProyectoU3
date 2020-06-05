@@ -7,13 +7,13 @@ namespace ExerciseAssiatant.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class regeneration : IMigrationMetadata
+    public sealed partial class correction : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(regeneration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(correction));
         
         string IMigrationMetadata.Id
         {
-            get { return "202006050613324_re-generation"; }
+            get { return "202006050734585_correction"; }
         }
         
         string IMigrationMetadata.Source

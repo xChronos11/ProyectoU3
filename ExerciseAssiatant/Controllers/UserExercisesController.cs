@@ -1,4 +1,5 @@
 ﻿using ExerciseAssiatant.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace ExerciseAssiatant.Controllers
         // GET: UserExercise
         public ActionResult Index(string id)
         {
-            return View(db.UserExercises.Where(ue => ue.UsuarioId== id));
+            var use = db.UserExercises.ToList();
+            var ls = db.UserExercises.Where(ue => ue.Cliente.UserId == id).ToList();
+            return View(ls);
         }
 
         // GET: UserExercise/Details/5
@@ -36,8 +39,13 @@ namespace ExerciseAssiatant.Controllers
         {
             try
             {
+                //ue.Cliente = db.Userss.Where(cl => cl.usrId == User.Identity.GetUserId()).ToList()[0];
                 // TODO: Add insert logic here
-                //ue.Cliente = db.Clientes
+                var uid = User.Identity.GetUserId();
+                ue.Cliente = db.Clientes.Where(cl => cl.ApplicationUser.Id == uid).FirstOrDefault();
+                ue.Usr = db.Userss.Where(u => u.usrId == uid).FirstOrDefault();
+                db.UserExercises.Add(ue);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
