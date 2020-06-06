@@ -12,9 +12,35 @@ namespace ExerciseAssiatant.Controllers
     public class UserExercisesController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
+
+        public void updaCalc(List<UserExercise> ls = null)
+        {
+            var id = User.Identity.GetUserId();
+            var usr = db.Userss.Where(u => u.usrId == id).FirstOrDefault();
+            ViewBag.usr = usr;
+            ViewBag.iw = Utilities.Antropometric.idealWeight(ViewBag.usr.Height);
+
+            if (ls == null)
+            {
+                var realId = db.Userss.Where(u => u.usrId == id).FirstOrDefault().Id;
+                ls = db.UserExercises.Where(ue => ue.Usr.Id == realId).ToList();
+            }
+
+            float calories = 0;
+            foreach (UserExercise ex in ls)
+            {
+                var curr = db.ExerciseTypes.Find(ex.ExerciseId);
+                calories += usr.Weight * curr.Cal4Hour * (float) ex.Duration.TotalHours;
+            }
+
+            ViewBag.iw_diff = Math.Truncate(ViewBag.usr.Weight - ViewBag.iw - (calories / ExerciseAssiatant.Utilities.Antropometric.calories4Kilogram));
+            ViewBag.cals = ExerciseAssiatant.Utilities.Antropometric.calories4Kilogram  * ViewBag.iw_diff;
+        }
+
         // GET: UserExercise
         public ActionResult Index(string id)
         {
+            updaCalc();
             //var use = db.UserExercises.ToList();
             var realId = db.Userss.Where(u => u.usrId == id).FirstOrDefault().Id;
             var ls = db.UserExercises.Where(ue => ue.Usr.Id == realId).ToList();
@@ -53,7 +79,7 @@ namespace ExerciseAssiatant.Controllers
                 ue.Usr = db.Userss.Where(u => u.usrId == uid).FirstOrDefault();
                 db.UserExercises.Add(ue);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("index", "UserExercises", new { id = User.Identity.GetUserId() }); ;
             }
             catch
             {
@@ -69,13 +95,17 @@ namespace ExerciseAssiatant.Controllers
 
         // POST: UserExercise/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, UserExercise ue)
         {
             try
             {
                 // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                var e = db.UserExercises.Find(id);
+                e.Duration = ue.Duration;
+                e.Date = ue.Date;
+                e.ExerciseId = ue.ExerciseId;
+                db.SaveChanges();
+                return RedirectToAction("Index", "UserExercises", new { id = User.Identity.GetUserId()});
             }
             catch
             {
@@ -86,7 +116,9 @@ namespace ExerciseAssiatant.Controllers
         // GET: UserExercise/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            db.UserExercises.Remove(db.UserExercises.Find(id));
+            db.SaveChanges();
+            return RedirectToAction("Index", "UserExercises", new { id = User.Identity.GetUserId() });
         }
 
         // POST: UserExercise/Delete/5

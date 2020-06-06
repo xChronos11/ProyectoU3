@@ -14,7 +14,7 @@ namespace ExerciseAssiatant.Utilities
 
         public static double idealWeight(double height)
         {
-            return 22 * Math.Pow(height, 2);
+            return 22 * Math.Pow(height/100, 2);
         }
 
         public static float calories4Kilogram = 7717.5f;
